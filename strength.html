@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강점 소개</title>
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            margin: 0;
+            padding: 2rem;
+            background-image: url("image/bg.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'NanumSquareOTF', sans-serif;
+        }
+
+        .background-title {
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            font-size: 6rem;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.05);
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .strength-box {
+            background: white;
+            border-radius: 1rem;
+            width: 80%;
+            max-width: 1000px;
+            margin: 4rem auto;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            border: 1px solid #000;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: margin 0.3s ease;
+        }
+
+        .strength-box.collapsed {
+            margin: 1.5rem auto;
+        }
+
+        .strength-box.first.collapsed {
+            margin-top: 4rem !important;
+        }
+
+        .section-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            background-color: white;
+            transition: background 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header:hover {
+            background-color: #f2f2f2;
+        }
+
+        .title-label {
+            background: #000;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .arrow-icon {
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            user-select: none;
+        }
+
+        .section-content {
+            padding: 1.2rem 1.5rem 1.6rem 1.5rem;
+            /* 아래쪽 패딩만 1.8rem으로 증가 */
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .strength-box.collapsed .section-content {
+            display: none;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+
+        .section-lower {
+            display: flex;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+
+        .example-image {
+            width: 40%;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .example-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+
+        .example-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-left: -0.8rem;
+            /* ← 이거 추가 */
+        }
+
+        .example-label-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-label {
+            background: #000;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .example-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .divider {
+            border-top: 2px solid #000;
+            margin: 1.5rem 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 4번째 카드 전용: 위쪽 여백만 줄임 */
+        .fourth-card .section-content {
+            padding-top: 0.6rem;
+        }
+
+        /* 구분선 */
+        .section-divider {
+            margin: 0.9rem 1.5rem 0 1.5rem;
+            border: none;
+            border-top: 1px solid #000;
+        }
+
+        /* 하단 첨부파일 블록 */
+        .section-lower {
+            padding-left: 1.5rem;
+            padding-top: 0.5rem;
+        }
+
+        /* 첨부파일 항목 줄 */
+        .section-lower .project-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* 아이콘 크기 통일 */
+        .section-lower .project-icon {
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+
+        /* 링크 텍스트 스타일 */
+        .section-lower .project-attachment-link {
+            font-size: 0.7rem;
+            color: #1d1f20;
+            text-decoration: none;
+        }
+
+        .section-lower .project-attachment-link:hover {
+            text-decoration: underline;
+        }
+
+        .fourth-card .section-divider {
+            margin-bottom: 0rem;
+            /* 또는 0.2rem 정도 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-title">STRENGTH</div>
+
+    <!-- 카드 1 -->
+    <div class="strength-box first">
+        <div class="section-header" onclick="toggleCard(this)">
+            <div class="title-label">세심함, 퀄리티에 대한 고집</div>
+            <div class="arrow-icon">▲</div>
+        </div>
+        <div class="section-content">
+            <div class="description">
+                몰입감 있는 전투 경험은 단순히 스킬의 기능 구현만으로 이룰 수 있는 것이 아니라, 납득할 수 있는 판정, 액션과 어울리는 사운드,
+                멋진 애니메이션이 조화를 이루었을 때 비로소 완성된다고 생각합니다.
+                <br>
+                스킬 판정 범위, 애니메이션의 속도, 효과음의 길이와 재생 타이밍을 수 차례 테스트하며 미세 조정하였으며,
+                그 결과 한층 자연스럽고 만족도 높은 액션 결과물을 완성할 수 있었습니다.
+                <br>
+                플레이어 경험을 중시하며 작은 디테일을 중시하는 작업 스타일은 게임 기획 업무 전반에 좋은 재료가 되리라 확신합니다.
+            </div>
+            <div class="divider"></div>
+            <div class="section-lower">
+                <div class="example-image">
+                    <img src="image/st1.png" alt="예시 이미지" onclick="openModal(this.src)">
+                </div>
+                <div class="example-text">
+                    <div class="example-label-wrapper">
+                        <div class="example-label">예시</div>
+                    </div>
+                    <div class="example-description">
+                        애니메이션 타임라인의 각 프레임마다 세부 콜라이더 설정을 하고, 활성 타이밍을 미세 조정하여
+                        몬스터의 공격 판정과 애니메이션, 사운드의 합치를 위해 많은 노력을 기울였습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 카드 2 -->
+    <div class="strength-box collapsed">
+        <div class="section-header" onclick="toggleCard(this)">
+            <div class="title-label">끈기, 고찰을 통한 문제해결력</div>
+            <div class="arrow-icon">▼</div>
+        </div>
+        <div class="section-content">
+            <div class="description">
+                짜임새 있는 결과물을 위해 수백번의 스크립트 컴파일과, 전투 시뮬레이션, 기획 문서 수정을 거쳤습니다.
+                <br>
+                게임 내 여러 시스템과 몬스터, 캐릭터의 액션을 기획하다 보면 그 결과물이 의도와 다른 움직임을 보이는 등 여러 버그와 오류가 나타나는 경우가 많습니다.
+                이러한 상황에 수차례 직면했지만 임시방편식 수정이나 구현이 어려운 기능을 덜어내는 등 원래 기획의도에서 벗어나 타협하는 방식으로
+                작업을 마무리하지 않았으며, 수 시간을 소비해서라도 끝까지 문제를 해결했습니다.
+            </div>
+            <div class="divider"></div>
+            <div class="section-lower">
+                <div class="example-text">
+                    <div class="example-label-wrapper">
+                        <div class="example-label">사례</div>
+                    </div>
+                    <div class="example-description">
+                        1인 개발 프로젝트인 ‘던전 다이버’에 등장하는 모래 암살자는 끈질긴 추적 능력을 핵심 특성으로 한 몬스터로,
+                        추적 범위 안의 플레이어와 거리가 벌어지면 플레이어 위치로 순간이동하는 공격 스킬을 보유했습니다.
+                        <br>
+                        프로토타입 테스트 결과 해당 몬스터가 추적 중 당초 기획 의도와 달리 추적 중 스스로 낭떠러지에 빠져 사망하거나, 지형에 끼여 움직이지 못하는 등
+                        상급 몬스터의 위상에 맞지 않는 추적 성능을 보여줬었습니다.
+                    </div>
+                </div>
+
+                <div class="example-text">
+                    <div class="example-label-wrapper">
+                        <div class="example-label">해결</div>
+                    </div>
+                    <div class="example-description">
+                        해당 몬스터와의 전투 상황을 여러 환경에서 테스트해본 결과,
+                        해당 스킬이 플레이어가 점프 등으로 장애물 사이를 넘어가는 순간에 시전될 수 있던 것이 문제임을 파악했고,
+                        <br>
+                        기존 추적 로직에 더해 플레이어의 지면 접촉을 체크하고, 공중에 있을 시 발동을 보류했다가
+                        착지 프레임에서 다시 스킬을 시전하는 조건을 추가하는 것으로 초기에 기획했던 상급 몬스터다운 추적 능력을 구현할 수 있었습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 카드 3 -->
+    <div class="strength-box collapsed">
+        <div class="section-header" onclick="toggleCard(this)">
+            <div class="title-label">객관성, 그에 기반한 성장성</div>
+            <div class="arrow-icon">▼</div>
+        </div>
+        <div class="section-content">
+            <div class="description">
+                스스로 부족한 점을 잘 파악하는 성향으로 자만하지 않으며 항상 개선하고 발전하려는 태도를 가지고 있습니다.
+                <br />
+                때문에 업무와 관련된 부가적인 지식과 기술을 배우는 데 망설임 없이 시간과 노력을 투자할 수 있습니다.
+            </div>
+            <div class="divider"></div>
+            <div class="section-lower">
+                <div class="example-text">
+                    <div class="example-label-wrapper">
+                        <div class="example-label">사례</div>
+                    </div>
+                    <div class="example-description">
+                        관련 기획서를 수 차례 작성하면서 몬스터의 스킬/액션 아이디어를 단순히 텍스트와 레퍼런스 이미지 제시만으로 전달하는 데에는 한계가 있다고 판단했기에, <br />
+                        Blender를 독학하여 3D 기반 캐릭터의 스킬 모션 샘플을 제작하거나 픽셀 그래픽 툴인 Aseprite를 통해 직접 캐릭터를 만들고 스킬 애니메이션을 제작하는 등 구체적인 시각자료를
+                        전달하는 능력을 키웠습니다. <br />
+                        또한 기획 초기 단계에서 기획안을 직접 구현하여 그 타당성을 직접 검증하고 테스트하는 능력의 필요성을 느껴 C#과 Unity 활용 능력을 키웠으며, 이를 활용해 실제 게임 제작과 기획에 이용했습니다.
+                        <br />
+                        이렇게 다양한 분야의 기술을 익히고 활용하는 과정을 통해 더욱 현실적이고 정제된 기획 역량을 키울 수 있었고, 나아가 게임 제작의 흐름과 직무 간
+                        연결성에 대한 이해도를 넓힐 수 있었습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 카드 4 -->
+    <div class="strength-box collapsed fourth-card">
+        <div class="section-header" onclick="toggleCard(this)">
+            <div class="title-label">풍부한 게임 경험</div>
+            <div class="arrow-icon">▼</div>
+        </div>
+        <div class="section-content">
+            <div class="description">
+                최근 8년간 38종의 다양한 장르의 게임을 110종 이상 플레이했으며, 누적 13000시간 이상의 게임플레이 시간을 기록했습니다.
+                <br>
+                단순히 게임을 많이 했음이 아니라, 장르와 플랫폼에 구애받지 않은 다양한 게임 경험으로 기획 아이디어의 밑바탕이 될 레퍼런스를 많이 쌓았고,
+                게임을 즐기는 동시에 기획자적 시선으로 각 장르의 문법과 즐거움을 분석하는 법을 배웠다는 점을 강조드리고 싶습니다.
+                <br>
+                특히 액션과 스킬 방면에서는 단순히 연출과 이펙트의 화려함에 치중하여 평가하던 기존 시선에서 벗어나,
+                스킬이 주는 전투 경험과 밸런스적 측면을 함께 고려하는 등 기획자적 시선으로 액션을 바라볼 수 있게 되었습니다.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-lower" style="padding-left: 1.5rem; padding-top: 0rem;">
+                <div class="project-row" style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="image/icon-excel.svg" class="project-icon" style="width: 1.3rem; height: 1.3rem;"
+                        alt="엑셀 아이콘" />
+                    <a href="https://your-link-here.com/플레이한게임목록.xlsx" target="_blank" rel="noopener noreferrer"
+                        class="project-attachment-link"
+                        style="font-size: 0.7rem; color: #1d1f20; text-decoration: none;">
+                        플레이한 게임 목록.xlsx
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function toggleCard(header) {
+            const box = header.closest(".strength-box");
+            const arrow = header.querySelector(".arrow-icon");
+            const wasCollapsed = box.classList.contains("collapsed");
+            const isFirstCard = box.classList.contains("first");
+
+            box.classList.toggle("collapsed");
+            arrow.textContent = wasCollapsed ? "▲" : "▼";
+
+            if (wasCollapsed && !isFirstCard) {
+                setTimeout(() => {
+                    const boxTop = box.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: boxTop - 20, behavior: "smooth" });
+                }, 100);
+            } else if (!wasCollapsed && isFirstCard) {
+                const preserveY = box.getBoundingClientRect().top + window.scrollY;
+                setTimeout(() => {
+                    window.scrollTo({ top: preserveY, behavior: "auto" });
+                }, 100);
+            }
+        }
+
+        function openModal(src) {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-img");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById("image-modal").style.display = "none";
+        }
+
+    </script>
+
+    <!-- 이미지 모달 -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+</body>
+
+</html>

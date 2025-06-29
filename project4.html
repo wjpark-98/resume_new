@@ -538,22 +538,40 @@
             align-items: center;
             gap: 0.6rem;
         }
+
+        .background-title {
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            font-size: 6rem;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.05);
+            /* 매우 연한 회색 */
+            pointer-events: none;
+            z-index: 0;
+            /* 카드보다 뒤로 */
+            user-select: none;
+        }
     </style>
 </head>
 
 <body>
+    <div class="background-title">PROJECTS</div>
     <div class="background">
         <div class="project-card">
             <div class="project-card-name">
-                <div class="project-title">창작 게임:Dungeon Diver</div>
+                <div class="project-title">창작 기획서:멜스트롬 아레나</div>
                 <div class="project-content">
-                    Dungeon Diver는 종스크롤 액션 플랫포머로, 아래로 길게 드리워진 던전 구조를 탐색하며 출구를 찾아 내려가는 것이 주요 목표입니다. 플레이어는 길을 막아서는 적들을
-                    해치우는 것 이외에도 각종 도구를 응용하여 장애물을 파괴하거나
-                    장치를 작동시켜 진행 루트를 개척하는 등 다양한 상호작용 요소와 퍼즐 기믹을 경험할 수 있습니다.
+                    『사이버펑크2077』 의 신규 주간 경쟁형 콘텐츠 제안 문서입니다.
+                    사이버펑크2077 이용자들의 지속적인 멀티플레이에 대한 요구를 충족함과 동시에 정기적으로 즐길만한 경쟁 콘텐츠를 추가하여 게임의 콘텐츠 지속성을 유지하는 것을 목표로 하는 콘텐츠
+                    기획서입니다.
+                    ARPG라는 사이버펑크2077의 정체성을 살려 전투 방면으로 지속적인 연구가 가능하도록 매주 갱신되는 [도전 룰] 시스템을 차용했으며, 싱글 레이드 형식을 채택해 게임의 기존
+                    장비, 특성 시스템을 해치지 않고 게임 내에 녹아들 수 있도록 했습니다.
+
                 </div>
             </div>
             <div class="project-card-image">
-                <img src="image/p1.png" class="project-image" />
+                <img src="image/p4.png" class="project-image" />
             </div>
             <div class="project-card-icons">
                 <div class="project-row">
@@ -568,21 +586,13 @@
                     <img src="image/role.svg" class="project-icon" />
                     <div class="project-content-detail">아트 / 사운드 / 기획 / 프로그래밍</div>
                 </div>
-                <div class="project-github-link">
-                    <img src="image/github.svg" class="project-icon" />
-                    <a href="https://github.com/username/repository" target="_blank" rel="noopener noreferrer">GitHub
-                        Repository</a>
-                </div>
             </div>
             <div class="project-card-tool">
                 <div class="project-row">
                     <img src="image/point.svg" class="project-tool-point" />
-                    <div class="project-tool-detail">Unity, C#</div>
+                    <div class="project-tool-detail">SketchUp</div>
                 </div>
-                <div class="project-row">
-                    <img src="image/point.svg" class="project-tool-point" />
-                    <div class="project-tool-detail">Aseprite</div>
-                </div>
+                
                 <div class="project-row">
                     <img src="image/point.svg" class="project-tool-point" />
                     <div class="project-tool-detail">MS Office</div>
@@ -593,11 +603,11 @@
             <div class="project-card-attachments">
                 <div class="project-row">
                     <img src="image/icon-pdf.svg" class="project-icon" />
-                    <a href="https://..." class="project-attachment-link">기획서 (PDF)</a>
+                    <a href="https://drive.google.com/file/d/1LrnrrOSP4DTc66PY_Bhr2E9EX2PwzDDT/view?usp=drive_link" class="project-attachment-link">기획서 (PDF)</a>
                 </div>
                 <div class="project-row">
-                    <img src="image/icon-excel.svg" class="project-icon" />
-                    <a href="https://..." class="project-attachment-link">기획서 (xlsx)</a>
+                    <img src="image/icon-sketchup.svg" class="project-icon" />
+                    <a href="https://drive.google.com/file/d/1QVyAC2OliG9HTvEZS5EDqqApYMOSOQ3T/view?usp=drive_link" class="project-attachment-link">모델링 샘플 (skp)</a>
                 </div>
             </div>
 
@@ -607,18 +617,18 @@
             <img class="project-prev" src="image/prev.svg" onclick="moveImages('prev')" />
             <div class="project-picture-wrapper">
                 <div class="project-picture side" id="image1">
-                    <img src="image/p1.png" class="project-div-image" />
+                    <img src="image/p4-detail1.png" class="project-div-image" />
                 </div>
                 <div class="project-picture center" id="image2">
-                    <img src="image/p1-detail1.png" class="project-div-image" />
+                    <img src="image/p4-detail2.png" class="project-div-image" />
                 </div>
                 <div class="project-picture side" id="image3">
-                    <img src="image/p1-detail2.png" class="project-div-image" />
+                    <img src="image/p4-detail3.png" class="project-div-image" />
                 </div>
             </div>
             <img class="project-next" src="image/next.svg" onclick="moveImages('next')" />
         </div>
-        
+
     </div>
     </div>
     <script>
@@ -634,22 +644,25 @@
             const lang = getUrlParameter("lang") || "ko";
             const mode = getUrlParameter("mode");
             const currentPage = window.location.pathname.split("/").pop();
+
             const isCorrectPage =
                 (lang === "en" &&
-                    (currentPage === "project_en.html" ||
-                        currentPage === "project2_en.html")) ||
+                    ["project_en.html", "project2_en.html", "project3_en.html", "project4_en.html", "strength_en.html", "ability_en.html"].includes(currentPage)) ||
                 (lang === "ko" &&
-                    (currentPage === "project.html" || currentPage === "project2.html"));
+                    ["project.html", "project2.html", "project3.html", "project4.html", "strength.html", "ability.html"].includes(currentPage));
 
             if (!isCorrectPage) {
                 const targetPage =
                     lang === "en"
-                        ? currentPage === "project2.html" || currentPage === "project2_en.html"
-                            ? "project2_en.html"
-                            : "project_en.html"
-                        : currentPage === "project2.html" || currentPage === "project2_en.html"
-                            ? "project2.html"
-                            : "project.html";
+                        ? currentPage.includes("2") ? "project2_en.html"
+                            : currentPage.includes("3") ? "project3_en.html"
+                                : currentPage.includes("4") ? "project4_en.html"
+                                    : "project_en.html"
+                        : currentPage.includes("2") ? "project2.html"
+                            : currentPage.includes("3") ? "project3.html"
+                                : currentPage.includes("4") ? "project4.html"
+                                    : "project.html";
+
                 const queryString = [];
                 if (lang) queryString.push(`lang=${lang}`);
                 if (mode) queryString.push(`mode=${mode}`);
@@ -657,6 +670,7 @@
                 window.location.href = targetPage + queryPart;
             }
         }
+
 
         function getUrlParameter(name) {
             const url = window.location.href;

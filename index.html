@@ -5,16 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://scccurri.github.io/portfolio/index.html" />
-  <meta property="og:title" content="최지웅 이력서" />
+  <meta property="og:url" content="https://wjpark-98.github.io/resume_new/index.html?lang=ko" />
+  <meta property="og:title" content="이력서_박우진" />
   <meta property="og:image" content="image/OGimage.png" />
-  <meta property="og:description" content="최지웅 이력서입니다." />
+  <meta property="og:description" content="박우진 이력서입니다." />
   <meta property="og:site_name" content="SCC Portfolio" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <title>최지웅 이력서</title>
+  <title>박우진 이력서</title>
   <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
@@ -113,14 +113,6 @@
       align-self: flex-start;
     }
 
-    .side-bar-logo {
-      height: auto;
-      position: relative;
-      display: block;
-      margin: 0 auto;
-      max-width: 8rem;
-      margin-top: 2.19rem;
-    }
 
     .side-bar-profile {
       position: relative;
@@ -457,14 +449,7 @@
       margin: 3.1rem 0;
     }
 
-    .intro-logo {
-      height: auto;
-      max-width: 45rem;
-      display: block;
-      margin: 0 auto;
-      object-fit: contain;
-      aspect-ratio: attr(width) / attr(height);
-    }
+
 
     .main-content {
       width: calc(100% - 20.25rem);
@@ -489,14 +474,7 @@
           var(--sub-organization-color) 100%);
     }
 
-    .intro-logo {
-      position: absolute;
-      opacity: 20%;
-      width: 40.0703125rem;
-      height: 13.125rem;
-      top: 16.31875rem;
-      left: 7.875rem;
-    }
+
 
     .intro-picture-frame {
       position: absolute;
@@ -540,6 +518,19 @@
       margin-bottom: 1.25rem;
     }
 
+    .intro-quote2 {
+      width: 3.1rem;
+      height: 2.6rem;
+      position: absolute;
+      top: 8.2rem;
+      /* 텍스트 아래 */
+      left: 24rem;
+      /* 텍스트 오른쪽 끝 근처 */
+      opacity: 0.9;
+      /* 시각적 균형 */
+    }
+
+
     .intro-text {
       width: 28.8rem;
       color: var(--main-font-color);
@@ -561,7 +552,7 @@
       position: absolute;
       width: 62.4rem;
       height: 0.05rem;
-      top: 3.5rem;
+      top: 2rem;
       left: 0;
       background: var(--main-font-color);
     }
@@ -569,7 +560,7 @@
     .intro-column-line {
       position: absolute;
       width: 0.05rem;
-      height: 29.4rem;
+      height: 20rem;
       top: 0;
       left: 36.2rem;
       background: var(--main-font-color);
@@ -605,7 +596,7 @@
 
     .intro-div {
       width: 62.4375rem;
-      height: 29.4375rem;
+      height: 20rem;
       border-radius: 0.939375rem;
       overflow: hidden;
       box-shadow: 0 0.250625rem 1.253125rem #00000033;
@@ -615,7 +606,7 @@
 
     .intro-frame {
       position: relative;
-      height: 29.4375rem;
+      height: 20rem;
       background: linear-gradient(180deg,
           rgba(34, 36, 37, 0) 0%,
           var(--sub-organization-color) 100%);
@@ -632,17 +623,17 @@
 
     .intro-picture-frame {
       position: absolute;
-      width: 22.25rem;
-      height: 22.25rem;
-      top: 3.578125rem;
-      left: 36.1875rem;
+      width: 18rem;
+      height: 18rem;
+      top: 2rem;
+      left: 40.5rem;
       background-color: var(--highlight-color);
     }
 
     .intro-picture {
       position: absolute;
-      width: 22.25rem;
-      height: 22.25rem;
+      width: 18rem;
+      height: 18rem;
       top: 0;
       left: 0;
       object-position: center 20%;
@@ -660,7 +651,7 @@
     .intro-content {
       position: relative;
       width: 29.1rem;
-      top: 7.4rem;
+      top: 1rem;
       left: 3.3rem;
       display: flex;
       flex-direction: column;
@@ -693,7 +684,7 @@
       position: absolute;
       width: 62.4rem;
       height: 0.05rem;
-      top: 3.5rem;
+      top: 2rem;
       left: 0;
       background: var(--main-font-color);
     }
@@ -703,7 +694,7 @@
       width: 0.05rem;
       height: 29.4rem;
       top: 0;
-      left: 36.2rem;
+      left: 40.5rem;
       background: var(--main-font-color);
     }
 
@@ -1432,6 +1423,19 @@
       }
     }
 
+    .proj-cards-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .proj {
+      flex: 1 1 calc(50% - 1rem);
+      max-width: 100%;
+    }
+
     */
   </style>
 </head>
@@ -1441,7 +1445,7 @@
     <div class="frame w-full">
       <!-- side-bar -->
       <div class="side-bar">
-        <img class="side-bar-logo w-full" src="image/basiclogo.svg" />
+
         <div class="side-bar-profile">
           <img class="side-bar-profile-picture size-full" src="image/profile_image.png" />
         </div>
@@ -1477,15 +1481,15 @@
         <div class="strength-set">
           <div class="strength">
             <img class="strength-img svg-filter" src="image/strength-1.png" />
-            <div class="strength-text font-regular">의사소통</div>
+            <div class="strength-text font-regular">객관성</div>
           </div>
           <div class="strength">
             <img class="strength-img svg-filter" src="image/strength-2.png" />
-            <div class="strength-text font-regular">추진력</div>
+            <div class="strength-text font-regular">집요함</div>
           </div>
           <div class="strength">
             <img class="strength-img svg-filter" src="image/strength-3.png" />
-            <div class="strength-text font-regular">리더십</div>
+            <div class="strength-text font-regular">철저함</div>
           </div>
         </div>
         <div class="line"></div>
@@ -1571,10 +1575,10 @@
           <div class="license-title font-regular">LICENSE</div>
           <div class="license-wrap">
             <div class="license-content">
-              <div class="license-text font-bold">SQLD 자격증</div>
+              <div class="license-text font-bold">ETS TOEIC 780</div>
             </div>
             <div class="license-content">
-              <div class="license-text font-bold">ADsP 자격증</div>
+              <div class="license-text font-bold">운전면허 1종 보통</div>
             </div>
           </div>
         </div>
@@ -1589,9 +1593,9 @@
             <p class="education-detail font-regular">
               2014.03.01 ~ 2017.02.8 / 경기도 구리시
             </p>
-            <div class="education-name font-bold">한림 대학교</div>
+            <div class="education-name font-bold">한림 대학교(법학,심리학)</div>
             <p class="education-detail font-regular">
-              2017.03.02 ~ 2023.02.20 / 3.8 / 강원도 춘천시
+              2017.03.02 ~ 2023.02.20 / 3.75 / 강원도 춘천시
             </p>
           </div>
         </div>
@@ -1602,7 +1606,7 @@
         <!-- 자기소개 div -->
         <div class="intro-div">
           <div class="intro-frame">
-            <img class="intro-logo w-full" src="image/basiclogo.svg" />
+
             <div class="intro-picture-frame">
               <img class="intro-picture" src="image/profile_image.png" />
             </div>
@@ -1614,13 +1618,14 @@
             <img class="intro-star svg-filter" src="image/star.svg" />
             <div class="intro-content">
               <img class="intro-quote svg-filter" src="image/quote.svg" />
+              <img class="intro-quote2 svg-filter" src="image/quote2.svg" />
               <p class="intro-text font-bold">
                 끊임없이 진화하는 기획자, <br /> 박우진입니다.
               </p>
               <p class="intro-text-detail font-regular">
-                게임 속 전투와 액션의 명확한 비전과 지향점이 있습니다.
+                게임 속 전투와 액션에 명확한 비전과 지향점이 있습니다.
                 <br />이 아이디어를 팀원과 나누고 구체화하기 위해 다방면의 툴을 연마했습니다.
-                <br />매 분 매 초 성장하여 팀의 성장에 힘을 보태겠습니다.
+                <br />매 분 매 초 성장하여 팀의 성공에 힘을 보태겠습니다.
               </p>
             </div>
           </div>
@@ -1629,156 +1634,84 @@
         <div class="exp-div">
           <div class="exp-title">
             <img class="exp-img svg-filter" src="image/exp.svg" />
-            <div class="exp-text font-bold">EXPERIENCE</div>
+            <div class="exp-text font-bold">Abilities</div>
           </div>
-          <div class="exp-cards-container">
-            <div class="exp-card-frame flex-center size-full">
-              <div class="exp-card">
-                <div class="exp-card-period-wrapper flex-center">
-                  <div class="exp-card-period font-regular">6개월</div>
-                </div>
-                <div class="exp-card-company font-bold">
-                  회사1
-                </div>
-                <div class="exp-card-term">2023.01~2023.06</div>
-                <div class="exp-card-team">
-                  <div class="exp-card-team-name font-bold">
-                    웹 개발팀, 주니어 개발자
-                  </div>
-                </div>
-                <div class="exp-card-task">
-                  <div class="point svg-filter"></div>
-                  <div class="exp-card-task-text font-regular">
-                    프론트엔드 개발 및 유지보수
-                  </div>
-                </div>
-                <div class="exp-card-proj">
-                  <div class="exp-card-proj-name font-bold">
-                    고객 관리 시스템 개선 프로젝트
-                  </div>
-                </div>
-                <div class="exp-card-task-term font-regular">
-                  2023.02~2023.05
-                </div>
-                <div class="exp-card-task-detail">
-                  <div class="point svg-filter"></div>
-                  <div class="exp-card-task-detail-text font-regular">
-                    React를 사용한 대시보드 UI 개선 및 성능 최적화
-                  </div>
-                </div>
+
+          <div class="proj-cards-container">
+            <!-- 첫 번째 카드 -->
+            <div class="proj" onclick="location.href='strength.html'">
+              <img src="image/s1.png" class="proj-main-img" />
+              <div class="proj-content">
+                <div class="proj-content-title font-bold">강점</div>
+                <p class="proj-content-text font-regular">기획자 박우진의 강점입니다.</p>
               </div>
-              <div class="exp-card">
-                <div class="exp-card-period-wrapper flex-center">
-                  <div class="exp-card-period font-regular">4개월</div>
-                </div>
-                <div class="exp-card-company font-bold">
-                  회사2
-                </div>
-                <div class="exp-card-term">2022.08~2022.11</div>
-                <div class="exp-card-team">
-                  <div class="exp-card-team-name font-bold">
-                    백엔드 개발팀, 인턴 개발자
-                  </div>
-                </div>
-                <div class="exp-card-task">
-                  <div class="point svg-filter"></div>
-                  <div class="exp-card-task-text font-regular">
-                    RESTful API 개발 및 데이터베이스 관리
-                  </div>
-                </div>
-                <div class="exp-card-proj">
-                  <div class="exp-card-proj-name font-bold">
-                    소셜 미디어 분석 플랫폼
-                  </div>
-                </div>
-                <div class="exp-card-task-term font-regular">
-                  2022.09~2022.11
-                </div>
-                <div class="exp-card-task-detail">
-                  <div class="point svg-filter"></div>
-                  <div class="exp-card-task-detail-text font-regular">
-                    Node.js와 Express를 사용한 API 개발 및 MongoDB 연동
-                  </div>
-                </div>
-              </div>
-              <div class="exp-card">
-                <div class="exp-card-period-wrapper flex-center">
-                  <div class="exp-card-period font-regular">3개월</div>
-                </div>
-                <div class="exp-card-company font-bold">회사3</div>
-                <div class="exp-card-term">2022.05~2022.07</div>
-                <div class="exp-card-team">
-                  <div class="exp-card-team-name font-bold">
-                    풀스택 개발팀, 프리랜서 개발자
-                  </div>
-                </div>
-                <div class="exp-card-task">
-                  <div class="point svg-filter"></div>
-                  <div class="exp-card-task-text font-regular">
-                    웹 애플리케이션 개발 및 배포
-                  </div>
-                </div>
-                <div class="exp-card-proj">
-                  <div class="exp-card-proj-name font-bold">
-                    온라인 학습 플랫폼 개발
-                  </div>
-                </div>
-                <div class="exp-card-task-term font-regular">
-                  2022.05~2022.07
-                </div>
-                <div class="exp-card-task-detail">
-                  <div class="point svg-filter"></div>
-                  <div class="exp-card-task-detail-text font-regular">
-                    React와 Django를 사용한 풀스택 웹 애플리케이션 개발
-                  </div>
-                </div>
+            </div>
+
+            <!-- 두 번째 카드 -->
+            <div class="proj" onclick="location.href='ability.html'">
+              <img src="image/a1.png" class="proj-main-img" />
+              <div class="proj-content">
+                <div class="proj-content-title font-bold">사용 툴 및 활용능력</div>
+                <p class="proj-content-text font-regular">활용 가능한 프로그램과 그 활용수준입니다.</p>
               </div>
             </div>
           </div>
         </div>
+
         <!-- 프로젝트 div -->
         <div class="proj-div">
           <div class="proj-title">
             <img class="proj-title-img svg-filter" src="image/proj.svg" />
-            <div class="proj-title-text font-bold">PROJECT</div>
+            <div class="proj-title-text font-bold">Projects</div>
           </div>
           <div class="proj-container">
             <div class="proj" onclick="location.href='project.html'">
               <img src="image/p1.png" alt="프로젝트 이미지" class="proj-main-img" />
               <div class="proj-content">
-                <div class="proj-content-title font-bold">프로젝트1</div>
+                <div class="proj-content-title font-bold">게임 프로젝트: 던전 다이버</div>
                 <p class="proj-content-text font-regular">
-                  유학생 커뮤니티 플랫폼 개발을 목표로 하였습니다. 유학생들이
-                  서로 정보를 공유하고 교류할 수 있도록 게시판, 채팅, 이벤트
-                  관리 기능을 구현했습니다. React와 Node.js를 사용하여 웹
-                  애플리케이션을 개발하였고, MongoDB를 통해 유연한 데이터
-                  관리를 실현했습니다. 이를 통해 유학생들이 보다 쉽게
-                  네트워킹에 필요한 정보를 얻을 수 있는 플랫폼을 제공했습니다.
-                </p>
+                  1인 개발을 통해 완성한 "종스크롤 액션 플랫포머"입니다.
+                  프로그래밍, 아트, 기획 등 사운드를 제외한 모든 파트를 직접 제작하였습니다.</p>
               </div>
             </div>
             <div class="proj" onclick="location.href='project2.html'">
               <img src="image/p2.png" alt="프로젝트 이미지" class="proj-main-img" />
               <div class="proj-content">
                 <div class="proj-content-title font-bold">
-                  프로젝트2
+                  창작 기획서: 고블린 해적단
                 </div>
                 <p class="proj-content-text font-regular">
-                  CodeCollaborate는 개발자들을 위한 협업 플랫폼입니다.
-                  개발자들이 프로젝트를 함께 작업하고 코드 리뷰, 실시간 채팅,
-                  이슈 트래킹 기능을 활용할 수 있도록 설계되었습니다. React와
-                  Node.js를 사용하여 개발된 이 웹 애플리케이션은 효율적인 협과
-                  원활한 커뮤니케이션을 지원합니다. 이를 통해 개발자들은 전
-                  세계 어디서든 팀워크를 강화하고 프로젝트를 성공적으로 완수할
-                  수 있습니다.
+                  고블린 해적단을 주제로 한 몬스터 스킬/액션 기획서 입니다.
+
+                </p>
+              </div>
+            </div>
+            <div class="proj" onclick="location.href='project3.html'">
+              <img src="image/p3.png" alt="프로젝트 이미지" class="proj-main-img" />
+              <div class="proj-content">
+                <div class="proj-content-title font-bold">창작 기획서: 볼트</div>
+                <p class="proj-content-text font-regular">
+                  팀 기반 AOS 게임:리그 오브 레전드의 신규 서포터 캐릭터 기획서 입니다.
+                </p>
+              </div>
+            </div>
+            <!-- ✅ 새 프로젝트 4 -->
+            <div class="proj" onclick="location.href='project4.html'">
+              <img src="image/p4.png" alt="프로젝트 이미지" class="proj-main-img" />
+              <div class="proj-content">
+                <div class="proj-content-title font-bold">창작 기획서: 멜스트롬 아레나</div>
+                <p class="proj-content-text font-regular">
+                  오픈월드 ARPG: 사이버펑크2077의 신규 정기 업데이트 콘텐츠 기획서 입니다.
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
-      <!-- 메인 콘텐츠 끝 -->
     </div>
+    <!-- 메인 콘텐츠 끝 -->
+  </div>
   </div>
   <div class="language-switch-floating">
     <button onclick="location.href='index_en.html?lang=en'" class="language-button font-regular">
@@ -1863,17 +1796,7 @@
       return queryString;
     }
 
-    function updateLogos(logoSrc) {
-      const sideBarLogo = document.querySelector(".side-bar-logo");
-      const introLogo = document.querySelector(".intro-logo");
 
-      if (sideBarLogo) {
-        sideBarLogo.src = logoSrc;
-      }
-      if (introLogo) {
-        introLogo.src = logoSrc;
-      }
-    }
   </script>
 </body>
 
